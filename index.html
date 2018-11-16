@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Handlebars Sandbox</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <script src="@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
+    <script src="@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script>
+      async function init() {
+        const response = await fetch("src/my-component.hbs");
+        const source = await response.text();
+        const template = Handlebars.compile(source);
+        document.getElementById("root").innerHTML = template({
+          title: "hello world"
+        });
+      }
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
