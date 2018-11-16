@@ -1,10 +1,10 @@
-// Import PolymerElement class
-// import { PolymerElement } from "@polymer/polymer/polymer-element.js";
-// define the element's class element
-class MyComponent2 extends HTMLElement {
+class MyComponent extends HTMLElement {
   // Element class can define custom element reactions
+  constructor() {
+    super();
+  }
   connectedCallback() {
-    this.textContent = "I'm a custom element!";
+    this.innerHTML = "I'm a custom element!";
     console.log("my-element created!");
   }
 
@@ -17,4 +17,4 @@ class MyComponent2 extends HTMLElement {
 console.log("working!");
 
 // Associate the new class with an element name
-customElements.define("my-component2", MyComponent2);
+customElements.define("my-component", MyComponent);
